@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "outDir": "./build",
+      "allowJs": true,
+      "target": "es6",
+      "allowSyntheticDefaultImports": true,
+      "jsx": "react-jsx",
+      "moduleResolution": "Node",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "module": "esnext",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

@@ -4,26 +4,6 @@
       "name": "Chromecast",
       "price": "299.99",
       "id": 1
-    },
-    {
-      "name": "Macbook Pro 2013",
-      "price": "1299.99",
-      "id": 2
-    },
-    {
-      "name": "Macbook Pro 2015",
-      "price": "1500.00",
-      "id": 3
-    },
-    {
-      "name": "Macbook Pro 2020",
-      "price": "3500.00",
-      "id": 4
-    },
-    {
-      "name": "Macbook Pro 2017",
-      "price": "2100.00",
-      "id": 5
     }
   ]
 }

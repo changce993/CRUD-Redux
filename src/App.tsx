@@ -5,7 +5,7 @@ import GlobalStyles from './GlobalStyles';
 import theme from './theme';
 import Home from './pages/home/Home';
 import { Provider } from 'react-redux';
-import store from './store';
+import { store } from './store';
 
 export default function App() {
   return (

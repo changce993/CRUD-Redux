@@ -6,6 +6,7 @@ import EditProduct from '../../components/editProduct/EditProduct';
 import ProductCard from '../../components/productCard/ProductCard';
 import { Row } from '../../components/ui/Grid';
 import { getProductsAction } from '../../actions/productActions';
+import { Iproduct, IinitialState } from '../../types';
 
 const Home = () => {
 
@@ -19,7 +20,10 @@ const Home = () => {
         // eslint-disable-next-line
     }, []);
 
-    const { products, error, loading } = useSelector(state => state.products);
+    const products = useSelector((state:IinitialState) => state.products);
+    const loading = useSelector<IinitialState>(state => state.loading);
+    const error = useSelector<IinitialState>(state => state.error);
+    console.log(products)
 
     return (
         <>
@@ -33,10 +37,10 @@ const Home = () => {
                 {products.length <= 0 && <p>No hay productos</p>}
 
                 <Row margin='2rem 0'>
-                    {products.map((product, index) => (
+                    {products.map((product: Iproduct, index: number) => (
                         <ProductCard
                             product={product}
-                            key={index}
+                            key={product.id}
                             setEditProduct={setEditProduct}
                         />
                     ))}

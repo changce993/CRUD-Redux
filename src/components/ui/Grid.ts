@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-export const Row = styled.div`
+interface IPropsRow {
+    margin?: string
+    padding?: string
+    background?: string
+    borderColor?: string
+    children: React.ReactNode
+}
+
+export const Row = styled.div<IPropsRow>`
     display:grid;
     grid-template-columns:repeat(1,1fr);
     column-gap:2rem;
@@ -20,11 +28,11 @@ export const Row = styled.div`
     };
 `;
 
-export const Col = styled.div`
+export const Col = styled.div<IPropsRow>`
     box-shadow:0 0 4px #ddd;
-    padding:${props => props.padding ? props.padding : '1rem'};
-    background: ${props => props.background ? props.background : 'white'};
-    border:1px solid ${props => props.borderColor ? props.borderColor : 'transparent'};
+    padding:${props => props.padding || '1rem'};
+    background: ${props => props.background || 'white'};
+    border:1px solid ${props => props.borderColor || 'transparent'};
     transition:.3s;
 
     :hover{

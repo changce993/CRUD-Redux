@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Col as ColUI } from '../ui/Grid';
+import { Col as ColUI } from '../ui/Grid.ts';
 
 export const Col = styled(ColUI)`
     display:flex;

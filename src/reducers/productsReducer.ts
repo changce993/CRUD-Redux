@@ -16,14 +16,16 @@ import {
     EDIT_PRODUCT_FAILED,
 } from '../types';
 
-const initialState = {
+import { IinitialState, Iproduct } from '../types'
+
+const initialState: IinitialState = {
     products:[],
-    error:null,
+    error:false,
     loading:false,
-    product:{}
+    product:undefined
 };
 
-const productReducer = (state = initialState, action) => {
+const productReducer = (state = initialState, action: any) => {
     switch(action.type){
         // Add new product
         case GET_PRODUCTS:
@@ -59,7 +61,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading:false,
-                error:null,
+                error:false,
                 products: action.payload
             }
 
@@ -68,7 +70,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: null,
+                error: false,
                 product: action.payload
             }
 
@@ -77,8 +79,8 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: null,
-                products: state.products.filter(product => product.id !== action.payload )
+                error: false,
+                products: state.products.filter((product: Iproduct) => product.id !== action.payload )
             }
 
         // Edit product
@@ -86,8 +88,8 @@ const productReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     loading: false,
-                    error: null,
-                    product: null
+                    error: false,
+                    product: state.product
                 }
         default:
             return state;

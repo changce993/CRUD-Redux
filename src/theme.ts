@@ -1,8 +1,44 @@
-const theme = {
+interface Itheme {
+    colors: any,
+    textSize: {
+        size: {
+            F8:string,
+            F10:string,
+            F12:string,
+            F14:string,
+            F16:string,
+            F20:string,
+            F24:string,
+            F32:string,
+            F48:string,
+            F64:string,
+            F72:string,
+            F80:string,
+            F100:string,
+            F120:string,
+        },
+        height: {
+            F8:string,
+            F10:string,
+            F12:string,
+            F14:string,
+            F16:string,
+            F20:string,
+            F24:string,
+            F32:string,
+            F48:string,
+            F64:string,
+            F72:string,
+            F80:string,
+            F100:string,
+            F120:string,
+        }
+    },
+}
+const theme : Itheme = {
     colors:{
         // gradient:'linear-gradient( 0deg, #8C50FC, #FECE45)',
         gradient:'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(254,217,249,1) 100%)',
-        
         primaryDark:'#F1C341',
         primary100:'#FECE45',
         primary90:'#945EF9',
@@ -15,7 +51,6 @@ const theme = {
         primary20:'#D3C7EA',
         primary10:'#DBD5E7',
         primary05:'#DFDCE5',
-      
         secondaryDark:'#0077cc',
         secondary100:'#0077cc',
         secondary90:'#0077cc',
@@ -28,7 +63,6 @@ const theme = {
         secondary20:'#0077cc',
         secondary10:'#0077cc',
         secondary05:'#0077cc',
-      
         black100:'#070D10',
         black90:'#1F2427',
         black80:'#383D3F',
@@ -40,18 +74,16 @@ const theme = {
         black20:'#CDCECF',
         black10:'#E5E6E6',
         black05:'#F9F9FF',
-      
         darkening30:'rgba(0,0,0,.3)',
         darkening40:'rgba(0,0,0,.4)',
         darkening50:'rgba(0,0,0,.5)',
         darkening60:'rgba(0,0,0,.6)',
-      
         success:'#0BB07B',
         error:'#DD2727',
         warning:'#FECE45',
         info:'#448AFF',
         white:'#FFFFFF',
-        transparent:'rgba(255,255,255,.0)'
+        transparent:'rgba(255,255,255,.0)',
     },
     textSize:{
         size: {
@@ -90,4 +122,3 @@ const theme = {
 }
 
 export default theme;
-
