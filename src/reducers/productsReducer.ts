@@ -14,6 +14,7 @@ import {
     EDIT_PRODUCT,
     EDIT_PRODUCT_SUCCESS,
     EDIT_PRODUCT_FAILED,
+    ProductAction
 } from '../types';
 
 import { IinitialState, Iproduct } from '../types'
@@ -25,7 +26,7 @@ const initialState: IinitialState = {
     product:undefined
 };
 
-const productReducer = (state = initialState, action: any) => {
+export default (state = initialState, action: ProductAction): IinitialState => {
     switch(action.type){
         // Add new product
         case GET_PRODUCTS:
@@ -52,7 +53,7 @@ const productReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 loading: false,
-                product:{},
+                product:undefined,
                 error: action.payload
             }
 
@@ -95,5 +96,3 @@ const productReducer = (state = initialState, action: any) => {
             return state;
     }
 };
-
-export default productReducer;

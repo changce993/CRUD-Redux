@@ -7,6 +7,7 @@ import ProductCard from '../../components/productCard/ProductCard';
 import { Row } from '../../components/ui/Grid';
 import { getProductsAction } from '../../actions/productActions';
 import { Iproduct, IinitialState } from '../../types';
+import { RootState } from '../../reducers';
 
 const Home = () => {
 
@@ -20,9 +21,9 @@ const Home = () => {
         // eslint-disable-next-line
     }, []);
 
-    const products = useSelector((state:IinitialState) => state.products);
-    const loading = useSelector<IinitialState>(state => state.loading);
-    const error = useSelector<IinitialState>(state => state.error);
+    const products = useSelector((state:RootState) => state.products.products);
+    const loading = useSelector<RootState>(state => state.products.loading);
+    const error = useSelector<RootState>(state => state.products.error);
     console.log(products)
 
     return (
