@@ -1,6 +1,7 @@
 import {
     SHOW_ALERT,
     HIDE_ALERT,
+    AlertAction
 } from '../types';
 
 import { IalertState } from '../types';
@@ -12,12 +13,12 @@ const initialState: IalertState = {
     }
 };
 
-const alertReducer = (state = initialState, action: {type: string, payload: any}) => {
+export default (state = initialState, action: AlertAction): IalertState => {
     switch ( action.type) {
         case SHOW_ALERT:
             return {
                 ...state,
-                alert: action.payload
+                alert: action.payload.alert
             }
         case HIDE_ALERT:
             return {
@@ -28,5 +29,3 @@ const alertReducer = (state = initialState, action: {type: string, payload: any}
             return state;
     }
 };
-
-export default alertReducer;

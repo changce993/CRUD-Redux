@@ -1,4 +1,7 @@
+import { Action } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 import axiosClient from '../config/axios';
+import { RootState } from '../reducers';
 import {
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
@@ -15,10 +18,11 @@ import {
     EDIT_PRODUCT,
     EDIT_PRODUCT_SUCCESS,
     EDIT_PRODUCT_FAILED,
+    Iproduct
 } from '../types';
 
 // --- Add new product
-export const newProductAction = (product) => {
+export const newProductAction = (product: Iproduct): ThunkAction<void, RootState, unknown, Action<string>> => {
     return async (dispatch) => {
         dispatch( addProduct() );
         try {
@@ -36,19 +40,19 @@ const addProduct = () => ({
     type:ADD_PRODUCT
 })
 
-const addproduct_success = product => ({
+const addproduct_success = (product: Iproduct) => ({
     type:ADD_PRODUCT_SUCCESS,
     payload:product
 });
 
-const addproduct_failed = status => ({
+const addproduct_failed = (status: boolean) => ({
     type:ADD_PRODUCT_FAILED,
     payload:status
 });
 
 
 // --- Get products
-export const getProductsAction = () => {
+export const getProductsAction = (): ThunkAction<void, RootState, unknown, Action<string>> => {
     return async (dispatch) => {
         dispatch(getProducts());
 
@@ -68,7 +72,7 @@ const getProducts = () => ({
     type:GET_PRODUCTS
 });
 
-const getProducts_success = products => ({
+const getProducts_success = (products: Iproduct[]) => ({
     type:GET_PRODUCTS_SUCCESS,
     payload:products
 });
@@ -80,7 +84,7 @@ const getProducts_failed = () => ({
 
 
 // Get single product
-export const getProductAction = product => {
+export const getProductAction = (product: Iproduct): ThunkAction<void, RootState, unknown, Action<string>> => {
     return async (dispatch) => {
         dispatch(getProduct());
         
@@ -97,7 +101,7 @@ const getProduct = () => ({
     type:GET_PRODUCT
 });
 
-const getProduct_success = product => ({
+const getProduct_success = (product: Iproduct) => ({
     type:GET_PRODUCT_SUCCESS,
     payload: product
 });
@@ -109,7 +113,7 @@ const getProduct_failed = () => ({
 
 
 // Delete product
-export const deleteProductAction = productId => {
+export const deleteProductAction = (productId: number): ThunkAction<void, RootState, unknown, Action<string>> => {
     return async (dispatch) => {
         dispatch(deleteProduct());
 
@@ -127,7 +131,7 @@ const deleteProduct = () => ({
     type:DELETE_PRODUCT
 });
 
-const deleteProduct_success = productId => ({
+const deleteProduct_success = (productId: number) => ({
     type:DELETE_PRODUCT_SUCCESS,
     payload:productId
 });
@@ -138,7 +142,7 @@ const deleteProduct_failed = () => ({
 });
 
 // --- Edit product
-export const editProductAction = product => {
+export const editProductAction = (product: Iproduct): ThunkAction<void, RootState, unknown, Action<string>> => {
     return async (dispatch) => {
         dispatch(editProduct());
 
@@ -156,7 +160,7 @@ const editProduct = () => ({
     type:EDIT_PRODUCT
 });
 
-const editProduct_success = product => ({
+const editProduct_success = (product: Iproduct) => ({
     type:EDIT_PRODUCT_SUCCESS,
     payload: product
 });
